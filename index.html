@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página de portafolio">
+    <meta name="keywords" content="Portafolio, retratos, video, fotografía">
+    <title>Luis Hernández</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Luis Hernández</h1>
+        <nav>
+            <ol>
+                <li><a href="#mexican-shabat">Mexican Shabat</a></li>
+                <li><a href="#post-mexican-shabat">Post-Mexican Shabat</a></li>
+                <li><a href="#fose">Flashes of Suicidal Excitement</a></li>
+                <li><a href="#campaña">Campaña contra el dengue</a></li>
+            </ol>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inst-side">
+            <div>
+                <a class="instagram" href="https://www.instagram.com/luishernang/" target="_blank">Instagram</a>
+            </div>
+            <!-- Sidebar button -->
+            <p class="info">
+                <span class="info-trigger" onclick="openSidebar()">Information</span>
+            </p>
+        </section>
+
+        <!-- Sidebar container -->
+        <div id="infoSidebar" class="sidebar">
+            <span class="close-btn" onclick="closeSidebar()">✖</span>
+            <p class="info-text-space">Hey, my name is Luis.</p>
+            <p class="info-text">I'm a photographer living in Torreón, México.</p>
+            <p class="info-text">Feel free to reach out for questions, commissions and love letters.</p>
+            <p class="info-text-space">alberto.gonzalezh11@gmail.com</p>
+        </div>
+    </main>
+
+    <script src="sidebar.js"></script>
+</body>
+</html>
