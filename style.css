@@ -14,6 +14,7 @@ body {
     color: #000; 
     line-height: 1.6;
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
     opacity: 0;
@@ -37,19 +38,16 @@ body {
     transform: translateY(0);
 }
 
-/* Left Column - Fixed */
+/* Left Column - Responsive */
 .left-column {
-    position: fixed;
-    width: 260px;
-    height: 100vh;
-    top: -20px;
-    left: -20px;
-    margin: 0;
-    padding: 25px 20px 20px 20px;
-    border-right: 1px solid #eee;
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    order: -1;
 }
 
 .left-column h1 {
@@ -98,12 +96,13 @@ body {
     margin-right: 8px;
 }
 
-/* Main Content - Scrollable */
+/* Main Content - Responsive */
 .main-content {
-    margin-left: 280px; 
+    width: 100%;
     flex: 1;
-    max-width: calc(100% - 280px);
-    padding-top: 0 !important;
+    max-width: 100%;
+    padding: 20px;
+    margin: 0;
 }
 
 /* Project Sections */
@@ -127,13 +126,13 @@ body {
 }
 
 .project h1 {
-    font-size: .7rem;
+    font-size: 1rem;
     font-weight: 300;
     margin-bottom: 0.5rem;
 }
 
 .project p {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     color: #000;
     text-align: left;
 }
@@ -141,13 +140,13 @@ body {
 /* Project Info Section */
 .project-info {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    gap: 60px;
-    flex-wrap: wrap;
-    padding: 20px 40px 40px 80px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    gap: 20px;
+    padding: 20px 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
 }
 
 .project-year {
@@ -161,15 +160,14 @@ body {
 }
 
 .project-description {
-    flex: 1;
+    width: 100%;
     font-family: Arial, sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     letter-spacing: .1px;
     color: #000000;
     text-align: left;
-    padding-left: 60px;
-    padding-right: 40px;
+    padding: 0;
 }
 
 .project-description p {
@@ -178,88 +176,169 @@ body {
 
 /* Project Title */
 .title h1 { 
-    font-size: .7rem; 
+    font-size: 1rem; 
     font-weight: 300; 
-    margin-bottom: 20px;
-    padding-top: 10px;
-    padding-left: 70px;
+    margin: 20px 0;
+    padding: 0;
     text-transform: uppercase;
     letter-spacing: .1px;
     text-align: left;
 }
 
 .title p { 
-    font-size: 0.7rem; 
+    font-size: 0.8rem; 
     font-weight: 400; 
     opacity: 0.7;
-    padding-right: 40px; 
-    margin-bottom: 2rem; 
-    text-align: right;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    text-align: left;
 }
 
-#title {
-  position: relative;
-  padding: 0 0 30px 0;
-  margin: 0;
-  z-index: 9999;
-  font-size: .7rem;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: .1px;
-  pointer-events: none;
-  border-bottom: 2px solid #eee;
-  width: 210px;
-  box-sizing: border-box;
-  max-width: 260px;
-  text-align: left;
+/* Base mobile styles */
+@media screen and (max-width: 480px) {
+    /* Ensure proper touch targets */
+    a, button, [role="button"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Improve text readability */
+    body {
+        -webkit-text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+    }
+    html {
+        font-size: 14px;
+    }
+    
+    .left-column {
+        padding: 15px;
+        position: relative;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .left-column h1 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .bio, .contact p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    
+    .project {
+        margin-bottom: 40px;
+    }
+    
+    .project-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .project-year {
+        flex: 0 0 auto;
+        margin-bottom: 10px;
+    }
+    
+    .slider-container {
+        margin: 0 -15px;
+        width: calc(100% + 30px);
+    }
+    
+    .nav-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
 }
 
-/* Right Column */
-.right-column h2 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: .1px;
+/* Tablet and small devices (landscape) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .left-column {
+        padding: 20px;
+    }
+    
+    .project-info {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .project-year {
+        flex: 0 0 120px;
+    }
 }
 
-.cv-section h3 {
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin: 1.5rem 0 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: .1px;
+/* Desktop and larger screens */
+@media (min-width: 768px) {
+    body {
+        flex-direction: row;
+    }
+    
+    .left-column {
+        position: fixed;
+        width: 260px;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 25px 20px 20px 20px;
+        border-right: 1px solid #eee;
+        border-bottom: none;
+        order: 0;
+    }
+    
+    .main-content {
+        margin-left: 260px;
+        padding: 20px 40px;
+        max-width: calc(100% - 260px);
+    }
+    
+    .project-info {
+        flex-direction: row;
+        gap: 60px;
+        padding: 20px 40px 40px 80px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .project-description {
+        padding-left: 60px;
+        font-size: 0.7rem;
+    }
+    
+    .title h1 {
+        font-size: 0.7rem;
+        padding-left: 70px;
+    }
+    
+    .title p {
+        text-align: right;
+        padding-right: 40px;
+        font-size: 0.7rem;
+    }
 }
 
-.cv-section p {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
-}
-
-/* ====================== SLIDER ====================== */
+/* Adjust slider for mobile */
 .slider-container {
-    position: relative;
     width: 100%;
-    max-width: 700px;
-    max-height: 500px;
-    margin: 0 auto;
     overflow: hidden;
-    margin-bottom: 0;
+    position: relative;
+    margin: 0 auto;
 }
 
 .slider {
     display: flex;
     transition: transform 0.5s ease;
     width: 100%;
-    height: 70vh;
-    min-height: 500px;
+    height: auto;
+    min-height: 0;
     scroll-behavior: smooth;
+    touch-action: pan-y;
 }
 
 .slide {
     min-width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
